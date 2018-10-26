@@ -1,0 +1,9 @@
+    node{
+        stage ("Checkout") {
+        git 'https://github.com/Microsoft/PartsUnlimitedMRP.git'
+        }
+
+        env.JAVA_HOME = "${tool 'JDK 8'}"
+        env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+        sh 'java -version'
+    }

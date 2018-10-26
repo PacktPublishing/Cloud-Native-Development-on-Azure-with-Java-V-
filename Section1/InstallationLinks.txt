@@ -1,0 +1,6 @@
+https://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html
+
+http://maven.apache.org/download.cgi
+
+https://docs.microsoft.com/en-us/cli/azure/install-azure-cli-windows?view=azure-cli-latest
+

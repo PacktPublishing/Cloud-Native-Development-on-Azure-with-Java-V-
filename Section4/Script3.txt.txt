@@ -1,0 +1,62 @@
+node{
+    
+    stage ("Checkout") {
+        git url: 'https://github.com/Microsoft/PartsUnlimitedMRP.git'
+    }
+    
+    env.JAVA_HOME = "${tool 'JDK 8'}"
+    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+    sh 'java -version'
+    
+    stage ('Build IntegrationService') {
+        dir('src/Backend/IntegrationService') {
+            sh 'chmod +x gradlew'
+            sh './gradlew build'
+            archiveArtifacts artifacts: '**/integration-service*.jar', excludes: null
+        }
+    }
+    
+    stage ('Build OrderService') {
+        dir('src/Backend/OrderService') {
+            sh 'chmod +x gradlew'
+            sh './gradlew build'
+            archiveArtifacts artifacts: '**/ordering-service*.jar', excludes: null
+            junit '**/TEST-*.xml'
+        }
+    }
+
+    stage ('Build Client') {
+        dir('src/Clients') {
+            sh 'chmod +x gradlew'
+            sh './gradlew build'
+            archiveArtifacts artifacts: '**/mrp.war', excludes: null
+        }
+    }
+    
+    stage ('Save MongoRecords.js') {
+        dir('deploy') {
+            archiveArtifacts artifacts: 'MongoRecords.js', excludes: '**/docker'
+        }
+    }
+
+    def mrphostname
+    
+    stage ('Get MRP hostname') { 
+        mrphostname = input(
+            id: 'mrhphostname', message: 'Please enter the MRP VM FQDN', parameters: [
+                [$class: 'TextParameterDefinition', defaultValue: 'mrp-deploy.eastus.cloudapp.azure.com', description: 'This is the FQDN by which the VM can be remotely accessed', name: 'mrphostname']
+                ])
+        echo ("MRP HostName: ${mrphostname}")
+    }
+    
+     stage ("ssh") {
+        sshagent(['mrpadmin']) {
+            sh "ssh -o StrictHostKeyChecking=no -l mrpadmin  ${mrphostname} 'curl -O ${env.BUILD_URL}artifact/build/libs/mrp.war'"
+            sh "ssh -o StrictHostKeyChecking=no -l mrpadmin  ${mrphostname} 'curl -O ${env.BUILD_URL}/artifact/build/libs/integration-service-0.1.0.jar'"
+            sh "ssh -o StrictHostKeyChecking=no -l mrpadmin  ${mrphostname} 'curl -O ${env.BUILD_URL}/artifact/build/libs/ordering-service-0.1.0.jar'"
+            sh "ssh -o StrictHostKeyChecking=no -l mrpadmin  ${mrphostname} 'curl -O ${env.BUILD_URL}/artifact/MongoRecords.js'"
+            sh "ssh -o StrictHostKeyChecking=no -l mrpadmin  ${mrphostname} 'curl -sL https://raw.githubusercontent.com/Microsoft/PartsUnlimitedMRP/master/docs/assets/jenkins/env/deploy_mrp_app.sh | sudo bash -'"
+            }
+        sh "curl -sL -w \"%{http_code}\\n\" http://${mrphostname}:9080/mrp/ -o /dev/null"
+    }
+}

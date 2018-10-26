@@ -1,0 +1,31 @@
+node{
+    stage ("Checkout") {
+        git 'https://github.com/Microsoft/PartsUnlimitedMRP.git'
+        }
+
+    env.JAVA_HOME = "${tool 'JDK 8'}"
+    env.PATH = "${env.JAVA_HOME}/bin:${env.PATH}"
+    sh 'java -version'  
+          
+    stage ("Integration Service") {
+            dir('src/Backend/IntegrationService') {
+            sh 'chmod +x gradlew'
+            sh './gradlew build'
+            archiveArtifacts artifacts: '**/integration-service*.jar', excludes: null
+        }
+    }    
+    stage ("Order Service") {
+            dir('src/Backend/OrderService') {
+            sh 'chmod +x gradlew'
+            sh './gradlew build'
+            archiveArtifacts artifacts: '**/ordering-service*.jar', excludes: null
+        }
+    }    
+    stage ("Clients") {
+        dir('src/Clients') {
+            sh 'chmod +x gradlew'
+            sh './gradlew build'
+            archiveArtifacts artifacts: '**/mrp.war', excludes: null
+        }
+    }
+}  
