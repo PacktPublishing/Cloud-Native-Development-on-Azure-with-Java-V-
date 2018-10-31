@@ -1,34 +1,43 @@
-# Building Trading Algorithms with Python [Video]
-This is the code repository for [Building Trading Algorithms with Python [Video]](https://www.packtpub.com/application-development/building-trading-algorithms-python-video?utm_source=github&utm_medium=repository&utm_campaign=9781788832144), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
+# Cloud Native Development on Azure with Java [Video]
+This is the code repository for [Cloud Native Development on Azure with Java]( ), published by [Packt](https://www.packtpub.com/?utm_source=github). It contains all the supporting project files necessary to work through the video course from start to finish.
 ## About the Video Course
-This course is a great opportunity to get started with trading, reap the rewards, and take the markets by storm. Programmers who have a basic knowledge of trading in traditional assets and wish to develop their own trading bots will find that this course addresses their core concerns and shows how to go about designing and developing a trading bot. 
-The course will enable you to get started with creating a traditional asset trading bot. It will arm you with all the necessary programming tools and techniques to develop a full-fledged trading bot that numerous investors/traders can utilize. It covers general features such as using a financial calculator to do conversions, simply by interacting with a bot. Your customers, using your trading, bot can look up recent trends to make informed predictions and see what others have been trading, and how much.
+This course will help you architect a cloud-native application which will be resilient, can auto-scale automatically, and requires less maintenance; it focuses entirely on practicality, building a cloud-native application in Java and deploying it on Azure. Developers get hands-on experience in a range of computing, storage, data, and network services, which offers the developer a complete toolbox to build and deploy cloud-native applications. You'll learn about the driving factors for cloud adoption and see how cloud deployment with Azure is different from regular deployment on a standard data center. 
+This course is a one-stop guide for Java developers who want to use Java Spring to build secure, resilient, robust, and scalable applications that are hosted on Microsoft Azure. You'll easily build and monitor a scalable, resilient, and robust cloud-native application that is always available and fault-tolerant.
 
 <H2>What You Will Learn</H2>
 <DIV class=book-info-will-learn-text>
 <UL>
-<LI>Explore the landscape, of trading bots for different market segments 
-<LI>Use Python and Pandas to track data and trends for different traditional trading market spaces 
-<LI>Explore several trading bot modules, including stocks, traditional assets, and Forex trade 
-<LI>Use Python to build a trading bot to track market trends&nbsp; 
-<LI>Use your trading bot to decide when to purchase and when to sell 
-<LI>Designing trading logic using Python 
-<LI>Ensure different types of order are catered for by your bot 
-<LI>Learn techniques for training and scaling your trading bot 
-<LI>Apply practical code examples without acquiring excessive theory </LI></UL></DIV>
+<LI>Explore and get familiar with the Azure offerings and services for developing cloud-native applications 
+<LI>Unleash the power of Azure to build a scalable and reliable business solution
+<LI>Delve into Azure App Services, a PaaS offering from Azure, so you can deploy Java web apps
+<LI>Learn to migrate or host an application to Azure
+<LI>Easily secure your Application using Azure Active Directory
+<LI>Use Jenkins to set up a Continuous Integration and Continuous Deployment pipeline
+<LI>Deploy Java Web App using Azure Kubernetes Service so you can host your application and decrease your development and deployment cost </LI></UL></DIV>
 
 ## Instructions and Navigation
 ### Assumed Knowledge
 To fully benefit from the coverage included in this course, you will need:<br/>
-Basics of Python Programming Language
+<LI>Some knwoledge of navigating through Azure portal
+  <LI>Experience with open source technologies like Spring Boot , Maven and Kubernetes </LI>
 ### Technical Requirements
-This course has the following software requirements:<br/>
-Python 3.x
+<LI>This course has the following software requirements:<br/>
+<LI>Operating system: Windows/Linux/Mac
+<LI>Browser: Microsoft Edge/Chrome/Safari
+<LI>An Azure subscription
+<LI>The Azure Command-Line Interface (CLI)
+<LI>An up-to-date Java Development Kit (JDK), version 1.7 or later
+<LI>Apache's Maven build tool (Version 3)
+<LI>A Git client
+<LI>A Docker client
+<LI>Java Developer Kit, version 8
+<LI>The free Eclipse IDE for Java EE Developers
+<LI>The Azure Toolkit for Eclipse </LI>
 
 ## Related Products
-* [Building Web UIs with Bootstrap 4 [Video]](https://www.packtpub.com/web-development/building-web-uis-bootstrap-4-video?utm_source=github&utm_medium=repository&utm_campaign=9781788396134)
+* [2D Game Development with Unity 5.x [Video]](https://www.packtpub.com/game-development/2d-game-development-unity-5x-video)
 
-* [Web Development with Angular and Webpack 4 [Video]](https://www.packtpub.com/web-development/web-development-angular-and-webpack-4-video?utm_source=github&utm_medium=repository&utm_campaign=9781789340150)
+* [3D Game Development with Unity 5.x [Video]](https://www.packtpub.com/game-development/3d-game-development-unity-5x-video)
 
-* [Learn Python by Building a Blockchain and Cryptocurrency [Video]](https://www.packtpub.com/application-development/learn-python-building-blockchain-and-cryptocurrency-video?utm_source=github&utm_medium=repository&utm_campaign=9781789610666)
+* [Advanced Continuous Delivery Pipeline [Video]](https://www.packtpub.com/networking-and-servers/advanced-continuous-delivery-pipeline-video)
 
