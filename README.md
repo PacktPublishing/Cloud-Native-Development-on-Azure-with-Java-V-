@@ -20,6 +20,7 @@ This course is a one-stop guide for Java developers who want to use Java Spring 
 To fully benefit from the coverage included in this course, you will need:<br/>
 <LI>Some knwoledge of navigating through Azure portal
   <LI>Experience with open source technologies like Spring Boot , Maven and Kubernetes </LI>
+  
 ### Technical Requirements
 <LI>This course has the following software requirements:<br/>
 <LI>Operating system: Windows/Linux/Mac
